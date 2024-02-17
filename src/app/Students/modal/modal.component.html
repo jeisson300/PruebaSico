@@ -1,0 +1,48 @@
+<dialog #modal>
+    <form method="dialog">
+        <button class="btn btn-danger" (click)="handleCloseModal()">
+            Close
+        </button>
+    </form>
+    <div class="row">
+        <div class="col">
+            <h2>Cursos Asignados</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Codigo curso</th>
+                        <th scope="col">Curso</th>
+                        <th scope="col">Cancelar Asignación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of studentCourseOwn">
+                        <td>{{item.courseId }}</td>
+                        <td>{{item.description}}</td>
+                        <td><button class="btn btn-primary" (click)="handleDeleteStudenCourse(item.id)">X</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col">
+            <h2>Cursos No Asignados</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Codigo curso</th>
+                        <th scope="col">Curso</th>
+                        <th scope="col">Asignar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of studentCourseNoOwn">
+                        <td>{{item.courseId }}</td>
+                        <td>{{item.description}}</td>
+                        <td><button class="btn btn-primary"
+                                (click)="handleCreateStudentCourse(item.courseId )">X</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</dialog>
